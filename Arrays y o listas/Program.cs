@@ -1,4 +1,6 @@
-﻿namespace Arrays_y_o_listas
+﻿using System;
+
+namespace Arrays_y_o_listas
 {
     internal class Program
     {
@@ -181,7 +183,7 @@
             Console.Clear();
             string[] elementos = {"primero","segundo","tercero","cuarto","quinto" };
             
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i <= 4; i++)
             {
                 if (i == 0 || i ==2 || i==4)
                 {
@@ -194,13 +196,25 @@
         public static void ejercicio2()
         {
             Console.Clear();
-
+            int[] elementos = { 1, 2, 3, 4, 5 };
+            int suma = 0;
+            for (int i = 0; i <= 4; i++)
+            {
+                suma +=  elementos[i];
+            }
+            Console.WriteLine(suma);
             menuActividadesIniciacion();
         }
         public static void ejercicio3()
         {
             Console.Clear();
-
+            int[] elementos = { 1, 2, 3, 4, 5 };
+            int multiplicacion = 1;
+            for (int i = 0; i <= 4; i++)
+            {
+                multiplicacion *= elementos[i];
+            }
+            Console.WriteLine(multiplicacion);
 
             menuActividadesIniciacion();
         }
@@ -208,33 +222,98 @@
         {
             Console.Clear();
 
+            List<int> lista=new List<int> { 1, 2, 3, 4, 5 };
+            foreach (var item in lista)
+            {
+                Console.WriteLine(item);
 
+            }
+
+            lista.RemoveAt(0); 
+            lista.RemoveAt(1);
+            lista.RemoveAt(lista.Count - 1);
+
+            foreach (var item in lista)
+            {
+                Console.Write(item+" ");
+
+            }
             menuActividadesIniciacion();
         }
         public static void ejercicio5()
         {
             Console.Clear();
 
+            List<int> lista = new List<int> { 1, 2, 3, 4, 5 };
+            foreach (var item in lista)
+            {
+                Console.Write(item+" ");
+
+            }
+
+            for (int i = 0; i <= 4; i++)
+            {
+                if (i == 0 || i == 2 || i == 4)
+                {
+                    lista[i] = 7;
+                }
+            }
+                Console.WriteLine("");
+
+
+            foreach (var item in lista)
+            {
+                Console.Write(item + " ");
+
+            }
+
             menuActividadesIniciacion();
         }
         public static void ejercicio6()
         {
             Console.Clear();
+            List<string> letras = new List<string> { "1", "2", "3", "4", "5" };
+            List<int> numeros=new List<int>();
 
+            for (int i = 0; i < letras.Count; i++)
+            {
+                numeros.Add(Convert.ToInt32(letras[i]));
+                
+            }
+            foreach (var item in numeros) 
+            {
+                Console.Write(item);
+            }
             menuActividadesIniciacion();
         }
         public static void ejercicio7()
         {
             Console.Clear();
+            List<string> letras = new List<string> { "1", "2", "3", "4", "5" };
 
-
-
+            foreach (var item in letras)
+            {
+                Console.Write(item);
+            }
+            Console.WriteLine($"\nEl numero de elementos es igual a {letras.Count}");
 
             menuActividadesIniciacion();
         }
         public static void ejercicio8()
         {
             Console.Clear();
+            List<int> numeros = new List<int> { 34,75,21,9,-54 };
+            foreach (var item in numeros)
+            {
+                Console.Write(item+" ");
+            }
+            numeros.Sort((a, b) => a.CompareTo(b));
+            Console.WriteLine("");
+
+            foreach (var item in numeros)
+            {
+                Console.Write(item+" ");
+            }
 
 
             menuActividadesIniciacion();
