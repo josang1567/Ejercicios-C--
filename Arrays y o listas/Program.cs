@@ -321,8 +321,19 @@ namespace Arrays_y_o_listas
         public static void ejercicio9()
         {
             Console.Clear();
+            List<string> letras = new List<string>{ "primero","segundo","tercero","cuarto","quinto" };
 
+            foreach (var item in letras)
+            {
+                Console.Write(item + " ");
+            }
+            letras.Sort((a, b) => a.CompareTo(b));
+            Console.WriteLine("");
 
+            foreach (var item in letras)
+            {
+                Console.Write(item + " ");
+            }
 
 
             menuActividadesIniciacion();
@@ -331,6 +342,18 @@ namespace Arrays_y_o_listas
         {
             Console.Clear();
 
+            List<int> numeros = new List<int> { 34, 75, 21, 9, -54 };
+            foreach (var item in numeros)
+            {
+                Console.Write(item + " ");
+            }
+            List<int> numeros2 = new List<int>();
+            Console.WriteLine("");
+
+            foreach (var item in numeros)
+            {
+                numeros.Add
+            }
 
 
 
