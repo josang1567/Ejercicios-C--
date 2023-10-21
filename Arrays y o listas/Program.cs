@@ -2,7 +2,7 @@
 
 namespace Arrays_y_o_listas
 {
-    internal class Program
+       internal class Program
     {
         static void Main(string[] args)
         {
@@ -163,7 +163,7 @@ namespace Arrays_y_o_listas
 
                     break;
 
-               
+
                 case ("esc"):
                     menuInicial();
 
@@ -181,13 +181,13 @@ namespace Arrays_y_o_listas
         public static void ejercicio1()
         {
             Console.Clear();
-            string[] elementos = {"primero","segundo","tercero","cuarto","quinto" };
-            
+            string[] elementos = { "primero", "segundo", "tercero", "cuarto", "quinto" };
+
             for (int i = 0; i <= 4; i++)
             {
-                if (i == 0 || i ==2 || i==4)
+                if (i == 0 || i == 2 || i == 4)
                 {
-                    Console.Write(elementos[i]+" ");
+                    Console.Write(elementos[i] + " ");
                 }
             }
 
@@ -200,7 +200,7 @@ namespace Arrays_y_o_listas
             int suma = 0;
             for (int i = 0; i <= 4; i++)
             {
-                suma +=  elementos[i];
+                suma += elementos[i];
             }
             Console.WriteLine(suma);
             menuActividadesIniciacion();
@@ -222,20 +222,20 @@ namespace Arrays_y_o_listas
         {
             Console.Clear();
 
-            List<int> lista=new List<int> { 1, 2, 3, 4, 5 };
+            List<int> lista = new List<int> { 1, 2, 3, 4, 5 };
             foreach (var item in lista)
             {
                 Console.WriteLine(item);
 
             }
 
-            lista.RemoveAt(0); 
+            lista.RemoveAt(0);
             lista.RemoveAt(1);
             lista.RemoveAt(lista.Count - 1);
 
             foreach (var item in lista)
             {
-                Console.Write(item+" ");
+                Console.Write(item + " ");
 
             }
             menuActividadesIniciacion();
@@ -247,7 +247,7 @@ namespace Arrays_y_o_listas
             List<int> lista = new List<int> { 1, 2, 3, 4, 5 };
             foreach (var item in lista)
             {
-                Console.Write(item+" ");
+                Console.Write(item + " ");
 
             }
 
@@ -258,7 +258,7 @@ namespace Arrays_y_o_listas
                     lista[i] = 7;
                 }
             }
-                Console.WriteLine("");
+            Console.WriteLine("");
 
 
             foreach (var item in lista)
@@ -273,14 +273,14 @@ namespace Arrays_y_o_listas
         {
             Console.Clear();
             List<string> letras = new List<string> { "1", "2", "3", "4", "5" };
-            List<int> numeros=new List<int>();
+            List<int> numeros = new List<int>();
 
             for (int i = 0; i < letras.Count; i++)
             {
                 numeros.Add(Convert.ToInt32(letras[i]));
-                
+
             }
-            foreach (var item in numeros) 
+            foreach (var item in numeros)
             {
                 Console.Write(item);
             }
@@ -302,17 +302,17 @@ namespace Arrays_y_o_listas
         public static void ejercicio8()
         {
             Console.Clear();
-            List<int> numeros = new List<int> { 34,75,21,9,-54 };
+            List<int> numeros = new List<int> { 34, 75, 21, 9, -54 };
             foreach (var item in numeros)
             {
-                Console.Write(item+" ");
+                Console.Write(item + " ");
             }
             numeros.Sort((a, b) => a.CompareTo(b));
             Console.WriteLine("");
 
             foreach (var item in numeros)
             {
-                Console.Write(item+" ");
+                Console.Write(item + " ");
             }
 
 
@@ -321,7 +321,7 @@ namespace Arrays_y_o_listas
         public static void ejercicio9()
         {
             Console.Clear();
-            List<string> letras = new List<string>{ "primero","segundo","tercero","cuarto","quinto" };
+            List<string> letras = new List<string> { "primero", "segundo", "tercero", "cuarto", "quinto" };
 
             foreach (var item in letras)
             {
@@ -347,15 +347,14 @@ namespace Arrays_y_o_listas
             {
                 Console.Write(item + " ");
             }
-            List<int> numeros2 = new List<int>();
+
             Console.WriteLine("");
 
+            numeros.Reverse();
             foreach (var item in numeros)
             {
-                numeros.Add
+                Console.Write(item + " ");
             }
-
-
 
 
             menuActividadesIniciacion();
@@ -366,13 +365,80 @@ namespace Arrays_y_o_listas
         public static void ejercicio11()
         {
             Console.Clear();
+            List<double> numeros = new List<double>();
+            double MaxNumber;
+            double MinNumber;
+            for (int i = 0; i <= 4; i++)
+            {
+                Console.WriteLine($"Inserte el valor del puesto {i}");
+                numeros.Add(double.Parse(Console.ReadLine()));
+            }
+            foreach (var item in numeros)
+            {
+                Console.Write(item + " ");
+            }
 
+            MaxNumber = numeros.Max();
+            MinNumber = numeros.Min();
+
+            numeros.Remove(MaxNumber);
+            numeros.Remove(MinNumber);
+
+            numeros = numeros.OrderByDescending(x => x).ToList();
+            Console.WriteLine("");
+
+            foreach (var item in numeros)
+            {
+                Console.Write(item + " ");
+            }
             menuActividades();
 
         }
         public static void ejercicio12()
         {
             Console.Clear();
+
+
+            int[,] matriz = new int[3, 3];
+
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.WriteLine($"Inserte el valor del puesto");
+
+                    matriz[i, j] = int.Parse(Console.ReadLine());
+                }
+            }
+
+            Console.WriteLine("Matriz generada:");
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write(matriz[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
+
+            int sumaMaxima = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                int sumaFila = 0;
+                for (int j = 0; j < 3; j++)
+                {
+                    sumaFila += matriz[i, j];
+                }
+                if (sumaFila > sumaMaxima)
+                {
+                    sumaMaxima = sumaFila;
+                }
+            }
+
+            // Mostrar la suma más alta de las filas
+            Console.WriteLine($"La suma más alta  es: {sumaMaxima}");
+
 
             menuActividades();
 
@@ -382,19 +448,102 @@ namespace Arrays_y_o_listas
             Console.Clear();
 
 
+            int[,] matriz = new int[3, 3];
+
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.WriteLine($"Inserte el valor del puesto");
+
+                    matriz[i, j] = int.Parse(Console.ReadLine());
+                }
+            }
+
+            Console.WriteLine("Matriz generada:");
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write(matriz[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
+
+            int sumaMaxima = 0;
+            int filaSumaMaxima = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                int sumaFila = 0;
+                for (int j = 0; j < 3; j++)
+                {
+                    sumaFila += matriz[i, j];
+                }
+                if (sumaFila > sumaMaxima)
+                {
+                    sumaMaxima = sumaFila;
+                    filaSumaMaxima = i;
+                }
+            }
+
+            Console.WriteLine($"La fila con la suma más alta es la fila {filaSumaMaxima + 1}:");
+            for (int j = 0; j < 3; j++)
+            {
+                Console.Write(matriz[filaSumaMaxima, j] + "\t");
+            }
+
+
             menuActividades();
 
         }
         public static void ejercicio14()
         {
             Console.Clear();
+            // Leer un número con más de 10 dígitos (como una cadena)
+            Console.Write("Ingrese un número con más de 10 dígitos: ");
+            List<int> numeros = new List<int>();
+
+            for (int i = 0; i <= 10; i++)
+            {
+                Console.WriteLine($"Inserte el valor del puesto {i}");
+                numeros.Add(int.Parse(Console.ReadLine()));
+            }
+
+            Console.Write("El numero que has introducido es: ");
+            foreach (var item in numeros)
+            {
+                Console.Write(item);
+            }
+
+            int SumaTotal = numeros[0] + numeros[1] + numeros[2] + numeros[7] + numeros[8] + numeros[9];
+            Console.WriteLine($"\n" +
+                $"La suma de los 3 primeros numeros y los 3 ultimos es igual a {SumaTotal}");
             menuActividades();
 
         }
         public static void ejercicio15()
         {
             Console.Clear();
+            List<string> palabras = new List<string>();
+            Random random = new Random();
 
+            int duracion = random.Next(0, 5);
+
+            Console.WriteLine($"Introduce {duracion} palabras");
+
+            for (int i = 0; i < duracion; i++)
+            {
+                Console.WriteLine("Introduce la siguiente palabra:");
+                palabras.Add(Console.ReadLine());
+            }
+
+            palabras = palabras.OrderBy(x => x).ToList();
+
+            foreach (var item in palabras)
+            {
+                Console.Write(item + " ");
+            }
             menuActividades();
 
         }
@@ -403,6 +552,28 @@ namespace Arrays_y_o_listas
         {
             Console.Clear();
 
+            List<string> palabras = new List<string>();
+            Random random = new Random();
+
+            int duracion = random.Next(5, 8);
+
+            Console.WriteLine($"Introduce {duracion} palabras");
+
+            for (int i = 0; i < duracion; i++)
+            {
+                Console.WriteLine("Introduce la siguiente palabra:");
+                palabras.Add(Console.ReadLine());
+            }
+
+            palabras = palabras.OrderByDescending(x => x).ToList();
+
+
+
+            Console.WriteLine("");
+            for (int i = 1; i < palabras.Count - 3; i++)
+            {
+                Console.Write(palabras[i] + " ");
+            }
 
             menuActividades();
 
@@ -410,11 +581,44 @@ namespace Arrays_y_o_listas
         public static void ejercicio17()
         {
             Console.Clear();
+            bool esImpar = false;
+            int Naintroducir=0;
+            List<int> numeros = new List<int>();
+            int mediana = 0;
+
+            while (esImpar == false)
+            {
+
+                Console.WriteLine($"Inserte un tamaño impar maximo para la lista");
+                Naintroducir=(int.Parse(Console.ReadLine()));
+
+               if (Naintroducir % 2 == 1 && Naintroducir>=2) {
+                    Naintroducir = Naintroducir - 1;
+                esImpar= true;
+                }
+                else
+                {
+                    Console.WriteLine("La lista tiene que ser impar y mayor o igual a 3");
+                }
+
+            }
+
+            for (int i = 0; i <= Naintroducir; i++)
+            {
+                Console.WriteLine($"Inserte el valor del puesto");
+                numeros.Add(int.Parse(Console.ReadLine()));
+            }
+
+            mediana = numeros[numeros.Count/2];
+
+
+            Console.WriteLine($"La mediana es: {mediana}");
 
 
 
             menuActividades();
         }
-       
+
     }
+
 }
