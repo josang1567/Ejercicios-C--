@@ -543,25 +543,27 @@ namespace Condicionales
             Console.WriteLine("Inserte el valor 5");
             cinco = intChecker();
 
-            
+
 
 
             if (uno % 2 != 0 && dos % 2 != 0 && tres % 2 != 0)
             {
-             
+
 
                 impar = true;
-            }else
+            }
+            else
 
-            if ( dos% 2 != 0 && tres % 2 != 0 && cuatro % 2 != 0)
+            if (dos % 2 != 0 && tres % 2 != 0 && cuatro % 2 != 0)
             {
-              
+
                 impar = true;
-            }else
+            }
+            else
 
             if (tres % 2 != 0 && cuatro % 2 != 0 && cinco % 2 != 0)
             {
-               
+
                 impar = true;
             }
             Console.WriteLine(impar);
@@ -575,14 +577,14 @@ namespace Condicionales
 
             String cadena;
             Console.WriteLine("Introduce la cadena");
-            cadena =Console.ReadLine();
-            String substring="";
+            cadena = Console.ReadLine();
+            String substring = "";
             List<string> vocales = new List<string> { "a", "e", "i", "o", "u" };
             int tamaño = cadena.Length;
 
-            for (int i = 0;i<tamaño ;i++)
+            for (int i = 0; i < tamaño; i++)
             {
-                
+
 
                 if (!vocales.Contains(cadena[i].ToString()))
                 {
@@ -591,47 +593,61 @@ namespace Condicionales
             }
 
             cadena = substring;
-            Console.WriteLine(cadena); 
+            Console.WriteLine(cadena);
             menuActividades();
 
         }
         public static void ejercicio15()
         {
-            
+
             Console.Clear();
             List<int> numeros = new List<int>();
             int busqueda;
             bool encontrado = false;
-            int posicion=0;
+            int posicion = 0;
             Random rnd = new Random();
 
             Console.WriteLine("Introduce El valor de busqueda");
             busqueda = intChecker();
-           /* for (int i = 0; i < 5; i++)
+
+            bool inside = false;
+
+            while (inside == false)
             {
-                Console.WriteLine("Introduce El valor de busqueda");
-                numeros.Add(intChecker());
-            }*/
-            for (int i = 0; i < 5; i++)
+                for (int i = 0; i < 5; i++)
+                {
+                    Console.WriteLine("Introduce El valor de busqueda");
+                    numeros.Add(intChecker());
+                }
+                if (numeros.Contains(busqueda) == true)
+                {
+                    inside = true;
+                }
+                else
+                {
+                    Console.WriteLine($"Por favor introduzca el valor {busqueda} dento de la lista");
+                }
+            }
+            /*for (int i = 0; i < 5; i++)
             {
               
                 numeros.Add(rnd.Next(0,50));
             }
-            numeros[rnd.Next(0, numeros.Count)] = busqueda;
-            for (int i = 0; i < 5 && encontrado==false; i++)
+            numeros[rnd.Next(0, numeros.Count)] = busqueda;*/
+            for (int i = 0; i < 5 && encontrado == false; i++)
             {
                 if (numeros[i] == busqueda)
                 {
                     posicion = i;
-                    encontrado= true;
+                    encontrado = true;
                 }
             }
             foreach (int i in numeros)
             {
-                Console.Write(i+" ");
+                Console.Write(i + " ");
 
             }
-            Console.WriteLine( " ");
+            Console.WriteLine(" ");
 
             Console.WriteLine(posicion);
             menuActividades();
@@ -641,7 +657,41 @@ namespace Condicionales
         public static void ejercicio16()
         {
             Console.Clear();
+            List<int> enteros1 = new List<int>();
+            List<int> enteros2 = new List<int>();
+            bool aparece = false;
+            int contador = 0;
+            Console.WriteLine("Introducion de valores de la primera lista");
 
+            for (int i = 0; i <= 2; i++)
+            {
+                Console.WriteLine("Introduce un valor:");
+                enteros1.Add(intChecker());
+            }
+            Console.WriteLine("Introducion de valores de la segunda lista");
+
+            for (int i = 0; i <= 2; i++)
+            {
+                Console.WriteLine("Introduce un valor:");
+                enteros2.Add(intChecker());
+            }
+
+            for (int i = 0; i < enteros1.Count && aparece == false; i++)
+            {
+                if (enteros2.Contains(enteros1[i]))
+                {
+                    contador++;
+                }
+            }
+            if (contador == 3)
+            {
+                Console.WriteLine("Si");
+            }
+            else
+            {
+                Console.WriteLine("No");
+
+            }
 
             menuActividades();
 
@@ -649,7 +699,34 @@ namespace Condicionales
         public static void ejercicio17()
         {
             Console.Clear();
+            float valor;
+            string respuesta = "";
+            bool correcto = false;
+            Console.WriteLine("Inserte el valor");
+            valor = floatChecker();
+            while (correcto==false)
+            {
+                Console.WriteLine("Es un valor en cm o metros");
+                respuesta = Console.ReadLine();
+               if(respuesta == "cm" || respuesta == "metros")
+                {
+                    correcto = true;
 
+                }
+
+            }
+            switch (respuesta)
+            {
+                case "cm":
+                    valor /= 100;
+                    Console.WriteLine($"{valor}m");
+                    break;
+                case "metros":
+                    valor *= 100;
+                    Console.WriteLine($"{valor}cm");
+
+                    break;
+            }
 
 
             menuActividades();
@@ -657,6 +734,31 @@ namespace Condicionales
         public static void ejercicio18()
         {
             Console.Clear();
+            int entero1;
+            int entero2;
+            Console.WriteLine("Inserte el valor 1");
+            entero1 = intChecker();
+            Console.WriteLine("Inserte el valor 2");
+            entero2 = intChecker();
+
+
+            if (entero1 > 21 && entero2 > 21)
+            {
+                Console.WriteLine( 0);
+            }
+
+            int diferencia1 = Math.Abs(21 - entero1);
+            int diferencia2 = Math.Abs(21 - entero2);
+
+            if (entero1 > 21 || diferencia1 > diferencia2)
+            {
+                Console.WriteLine( entero2);
+            }
+            else
+            {
+                Console.WriteLine( entero1);
+            }
+
 
             menuActividades();
 
@@ -671,7 +773,23 @@ namespace Condicionales
         public static void ejercicio20()
         {
             Console.Clear();
+            Console.WriteLine("Introduce un número entero (mayor que 0 y menor que 10,000):");
+            int numero = intChecker();
+            List<int> excepcion = new List<int>() {50,51,52,53,54,56,57,58,59};   
+            if (numero > 0 && numero < 10000)
+            {
+                string numeroComoTexto = numero.ToString();
 
+                if (numeroComoTexto.Contains("5") && !numeroComoTexto.EndsWith("15") && numero != 500 ));
+                {
+                    Console.WriteLine("Si");
+                }
+                else
+                {
+                    Console.WriteLine("No.");
+                }
+            }
+           
             menuActividades();
 
         }
@@ -688,6 +806,22 @@ namespace Condicionales
             {
                 Console.WriteLine("Por favor, ingrese un número entero válido.");
                 intChecker();
+            }
+            return numero;
+        }
+
+        public static float floatChecker()
+        {
+            float numero = 0;
+            String input = Console.ReadLine();
+            try
+            {
+                numero = Single.Parse(input);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Por favor, ingrese un número entero válido.");
+                floatChecker();
             }
             return numero;
         }
