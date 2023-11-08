@@ -54,7 +54,20 @@
             {
                 case "1":
                     ejercicio1();
+                        /*
+                        Un vector es un segmento de un mapa que tiene una direccion y sentido 
+                        Sus propiedades basicas son:
 
+                        -Igualdad: dos vectores son iguales si tienen la misma magnitud y direccion, tambien son iguales en caso de que sus cordenadas sean iguales.
+
+                        -Vectores opuestos, paralelos y antiparalelos:
+                                -Opuestos: Los vectores opuestos son toda pareja de vectores con la misma magnitud pero direccion opuesta.
+
+                                -Paralelos: Los vectores paralelos son aquellos que tienen la misma direccion pero no la misma magnitud.
+
+                                -Antiparalelos: Los vectores antiparalelos  sin tienen direccion opuesta pero no la misma magnitud
+                        -
+                        */
                     break;
 
                 case "2":
