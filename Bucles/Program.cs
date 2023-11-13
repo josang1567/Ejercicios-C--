@@ -1,4 +1,6 @@
-﻿namespace Bucles
+﻿using System;
+
+namespace Bucles
 {
     internal class Program
     {
@@ -124,6 +126,11 @@
             Console.WriteLine("Pulse 16 para acceder a el ejercicio 16");
             Console.WriteLine("Pulse 17 para acceder a el ejercicio 17");
             Console.WriteLine("Pulse 18 para acceder a el ejercicio 18");
+            Console.WriteLine("Pulse 19 para acceder a el ejercicio 19");
+            Console.WriteLine("Pulse 20 para acceder a el ejercicio 20");
+            Console.WriteLine("Pulse 21 para acceder a el ejercicio 21");
+            Console.WriteLine("Pulse 22 para acceder a el ejercicio 22");
+
             Console.WriteLine("Escriba esc para volver atras");
 
             String eleccion;
@@ -166,6 +173,22 @@
                     ejercicio18();
 
                     break;
+                case "19":
+                    ejercicio19();
+
+                    break;
+                case "20":
+                    ejercicio20();
+
+                    break;
+                case "21":
+                    ejercicio21();
+
+                    break;
+                case "22":
+                    ejercicio22();
+
+                    break;
                 case ("esc"):
                     menuInicial();
 
@@ -183,55 +206,167 @@
         public static void ejercicio1()
         {
             Console.Clear();
+            List<int> numeros = new List<int> { 1, 2, 3, 4, 5 };
+            int suma = 0;
+            int multi = 1;
 
+            for (int i = 0; i < numeros.Count; i++)
+            {
+                suma += numeros[i];
+                multi *= numeros[i];
+            }
+
+            Console.WriteLine($"El resultado de la suma de la lista(1,2,3,4,5) es {suma}");
+            Console.WriteLine($"El resultado de la multiplicacion de la lista(1,2,3,4,5) es {multi}");
 
             menuActividadesIniciacion();
         }
         public static void ejercicio2()
         {
             Console.Clear();
+            int numero = 0;
+
+            Console.WriteLine("introduce un numero");
+            numero = intChecker();
+
+            for (int i = 0; i <= 10; i++)
+            {
+                Console.WriteLine($"{i} x {numero} == {i * numero}");
+            }
 
             menuActividadesIniciacion();
         }
         public static void ejercicio3()
         {
             Console.Clear();
+            for (int i = 0; i <= 99; i++)
+            {
+                if (i != 3 && i != 6 && i != 11)
+                {
+                    Console.Write(i + " ");
+                }
 
-
+            }
             menuActividadesIniciacion();
         }
         public static void ejercicio4()
         {
             Console.Clear();
+            int numero = 0;
+            int total = 1;
+            Console.WriteLine("introduce un numero maximo");
+            numero = intChecker();
 
+            for (int i = 1; i <= numero; i++)
+            {
+                if ((i % 2) != 0)
+                {
+                    total *= i;
+                    Console.WriteLine(i + "   " + total);
+                }
+            }
+            Console.WriteLine(total);
 
             menuActividadesIniciacion();
         }
         public static void ejercicio5()
         {
             Console.Clear();
+            int numero = 0;
+            int suma = 0;
+            Console.WriteLine("introduce un numero maximo");
+            numero = intChecker();
+
+            while (numero != 0)
+            {
+                suma += numero % 10;
+                numero /= 10;
+            }
+
+            Console.WriteLine($"La suma de los digitos es: " + suma);
 
             menuActividadesIniciacion();
         }
         public static void ejercicio6()
         {
             Console.Clear();
+            int numero = 0;
+            Console.WriteLine("introduce un numero maximo");
+            numero = intChecker();
+
+
+
+
+            if (numero < 2)
+            {
+                Console.WriteLine("No es primo");
+
+            }
+            if (EsPrimo(numero) == true)
+            {
+                Console.WriteLine("Es primo");
+
+            }
+            else
+            {
+                Console.WriteLine("No es primo");
+
+            }
 
             menuActividadesIniciacion();
         }
         public static void ejercicio7()
         {
             Console.Clear();
+            int numero = 0;
+            Console.WriteLine("introduce un numero maximo");
+            numero = intChecker();
 
+
+
+            for (int i = 2; i < numero; i++)
+            {
+                if (EsPrimo(i) == true)
+                {
+                    Console.Write(i + " ");
+
+                }
+            }
 
 
 
             menuActividadesIniciacion();
         }
+
+
+        static bool EsPrimo(int num)
+        {
+            if (num < 2)
+            {
+                return false;
+            }
+
+            for (int i = 2; i <= Math.Sqrt(num); i++)
+            {
+                if (num % i == 0)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
         public static void ejercicio8()
         {
             Console.Clear();
+            string fila = "";
 
+            for (int i = 1; i <= 9; i++)
+            {
+                fila += "*";
+
+                Console.WriteLine(fila.Replace("*", i.ToString()));
+            }
 
             menuActividadesIniciacion();
         }
@@ -239,7 +374,13 @@
         {
             Console.Clear();
 
-
+            for (int i = 1500; i <= 2700; i++)
+            {
+                if (i % 7 == 0 && i % 5 == 0)
+                {
+                    Console.Write($"{i} ");
+                }
+            }
 
 
             menuActividadesIniciacion();
@@ -248,7 +389,15 @@
         {
             Console.Clear();
 
+            Console.Write("Ingrese un número entero: ");
+            int numero = intChecker();
 
+            Dictionary<int, int> ocurrencias = ContarOcurrenciasDigitos(numero);
+
+            foreach (var par in ocurrencias)
+            {
+                Console.WriteLine($"El dígito {par.Key} aparece {par.Value} veces.");
+            }
 
 
 
@@ -256,17 +405,70 @@
         }
 
 
+        static Dictionary<int, int> ContarOcurrenciasDigitos(int numero)
+        {
+            Dictionary<int, int> ocurrencias = new Dictionary<int, int>();
+
+            // Convierte el número en una cadena para iterar por cada dígito
+            string numeroStr = Math.Abs(numero).ToString();
+
+            foreach (char digitoChar in numeroStr)
+            {
+                int digito = int.Parse(digitoChar.ToString());
+
+                if (ocurrencias.ContainsKey(digito))
+                {
+                    // Si ya se ha encontrado este dígito, aumenta el contador
+                    ocurrencias[digito]++;
+                }
+                else
+                {
+                    // Si es la primera vez que se encuentra este dígito, agrega una nueva entrada al diccionario
+                    ocurrencias[digito] = 1;
+                }
+            }
+
+            return ocurrencias;
+        }
+
         //ejercicios normales
         public static void ejercicio11()
         {
             Console.Clear();
 
+            Random random = new Random();
+            int tamaño = random.Next(0, 10);
+            bool aparece = false;
+            List<int> enteros = new List<int>();
+            int suma = 0;
+            for (int i = 0; i <= random.Next(0, 10); i++)
+            {
+                Console.Write("Ingrese un número entero: ");
+                enteros.Add(intChecker());
+            }
+            foreach (var item in enteros)
+            {
+                suma += item;
+            }
+            Console.WriteLine(suma);
             menuActividades();
 
         }
         public static void ejercicio12()
         {
             Console.Clear();
+            string frase;
+            Console.WriteLine("Inserte una frase");
+            frase=Console.ReadLine();
+            string resultado="";
+            foreach (char letra in frase)
+            {
+                if (!("aeiouAEIOU".Contains(letra)))
+                {
+                    resultado += letra.ToString();
+                }
+            }
+            Console.WriteLine(resultado);
 
             menuActividades();
 
@@ -275,19 +477,87 @@
         {
             Console.Clear();
 
+            Random random = new Random();
+            int tamaño = random.Next(0, 10);
+            bool aparece = false;
+            List<int> enteros = new List<int>();
+            for (int i = 0; i <= random.Next(0, 10); i++)
+            {
+                Console.Write("Ingrese un número entero: ");
+                enteros.Add(intChecker());
+            }
 
+            for (int i = 0; i <= enteros.Count && aparece == false; i++)
+            {
+                if (i == 1 || i == 3)
+                {
+                    aparece = true;
+                }
+            }
+
+            Console.WriteLine(aparece);
             menuActividades();
 
         }
         public static void ejercicio14()
         {
             Console.Clear();
+
+
+            Random random = new Random();
+            int tamaño = random.Next(0, 10);
+            bool aparece = false;
+            int a = 0;
+            int p = 0;
+            List<int> enteros = new List<int>();
+            for (int i = 0; i <= /*random.Next(0, 10)*/6; i++)
+            {
+                Console.Write("Ingrese un número entero: ");
+                enteros.Add(intChecker());
+            }
+
+            for (int i = 0; i < enteros.Count && aparece == false; i++)
+            {
+                if (i != 0)
+                {
+                    a = i - 1;//anterior
+                    p = i + 1;//posterior
+
+                    if ((enteros[i] % 2) != 0)
+                    {
+                        if (enteros[a] == enteros[i] && enteros[i] == enteros[p])
+                        {
+                            aparece = true;
+                        }
+                    }
+                }
+            }
+            Console.WriteLine(aparece);
             menuActividades();
 
         }
         public static void ejercicio15()
         {
             Console.Clear();
+            int numero=0;
+            Console.Write("Ingrese un número entero: ");
+            numero=intChecker();
+            int suma = 0;
+           double resultado =Math.Pow(2,numero);
+
+
+            string numerodividido = resultado.ToString();
+
+            foreach (char digito in numerodividido)
+            {
+                if (char.IsDigit(digito))
+                {
+                    suma += int.Parse(digito.ToString());
+                }
+            }
+
+
+            Console.WriteLine(suma);
 
             menuActividades();
 
@@ -315,6 +585,50 @@
 
             menuActividades();
 
+        }
+        public static void ejercicio19()
+        {
+            Console.Clear();
+
+            menuActividades();
+
+        }
+        public static void ejercicio20()
+        {
+            Console.Clear();
+
+            menuActividades();
+
+        }
+        public static void ejercicio21()
+        {
+            Console.Clear();
+
+            menuActividades();
+
+        }
+        public static void ejercicio22()
+        {
+            Console.Clear();
+
+            menuActividades();
+
+        }
+
+        public static int intChecker()
+        {
+            int numero = 0;
+            String input = Console.ReadLine();
+            try
+            {
+                numero = int.Parse(input);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Por favor, ingrese un número entero válido.");
+                intChecker();
+            }
+            return numero;
         }
     }
 }

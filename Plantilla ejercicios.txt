@@ -312,3 +312,19 @@
         menuActividades();
 
     }
+
+ public static int intChecker()
+        {
+            int numero = 0;
+            String input = Console.ReadLine();
+            try
+            {
+                numero = int.Parse(input);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Por favor, ingrese un número entero válido.");
+                intChecker();
+            }
+            return numero;
+        }
