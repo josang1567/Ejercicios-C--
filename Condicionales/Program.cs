@@ -766,10 +766,55 @@ namespace Condicionales
         public static void ejercicio19()
         {
             Console.Clear();
+            Console.WriteLine("entra");
+            string[,] tablero = {{ " ", " ", " " },{ " ", " ", " " },{ " ", " ", " " }};
+
+            for (int fila = 0; fila < 3;fila++)
+            {
+                for (int columna = 0; columna < 3; columna++)
+                {
+                    Console.WriteLine($"Inserte el valor de la fila:{fila} columna_{columna}");
+                    tablero[fila,columna]=Console.ReadLine();
+                }
+
+
+            }
+            if (ComprobarGanador(tablero) != "Empate")
+            {
+                Console.WriteLine("Gana " + ComprobarGanador(tablero) );
+            }
+            else
+            {
+                Console.WriteLine( ComprobarGanador(tablero));
+
+            }
 
             menuActividades();
 
         }
+
+        static string ComprobarGanador(string[,] tablero)
+        {
+            // Verifica filas y columnas
+            for (int i = 0; i < 3; i++)
+            {
+                if (tablero[i, 0] == tablero[i, 1] && tablero[i, 1] == tablero[i, 2] && tablero[i, 0] != " ")
+                    return tablero[i, 0];
+
+                if (tablero[0, i] == tablero[1, i] && tablero[1, i] == tablero[2, i] && tablero[0, i] != " ")
+                    return tablero[0, i];
+            }
+
+            // Verifica diagonales
+            if (tablero[0, 0] == tablero[1, 1] && tablero[1, 1] == tablero[2, 2] && tablero[0, 0] != " ")
+               return tablero[0, 0];
+
+            if (tablero[0, 2] == tablero[1, 1] && tablero[1, 1] == tablero[2, 0] && tablero[0, 2] != " ")
+              return  tablero[0, 2];
+
+            return "Empate";
+        }
+
         public static void ejercicio20()
         {
             Console.Clear();
@@ -780,7 +825,7 @@ namespace Condicionales
             {
                 string numeroComoTexto = numero.ToString();
 
-                if (numeroComoTexto.Contains("5") && !numeroComoTexto.EndsWith("15") && numero != 500 ));
+                if (numeroComoTexto.Contains("5") && !numeroComoTexto.EndsWith("15") && numero != 500 )
                 {
                     Console.WriteLine("Si");
                 }
