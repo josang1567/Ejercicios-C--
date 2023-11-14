@@ -24,9 +24,6 @@ namespace Vectores
                     menuActividadesIniciacion();
                     break;
 
-                case "2":
-                    menuActividades();
-                    break;
                 case ("esc"):
                     Environment.Exit(0);
                     break;
@@ -103,56 +100,7 @@ namespace Vectores
             }
         }
 
-        public static void menuActividades()
-        {
-            Console.WriteLine("\n\nMenu de Actividades");
-            Console.WriteLine("Pulse 8 para acceder a el ejercicio 8");
-            Console.WriteLine("Pulse 9 para acceder a el ejercicio 9");
-            Console.WriteLine("Pulse 10 para acceder a el ejercicio 10");
-            Console.WriteLine("Pulse 11 para acceder a el ejercicio 11");
-            Console.WriteLine("Pulse 12 para acceder a el ejercicio 12");
-            Console.WriteLine("Escriba esc para volver atras");
-
-            String eleccion;
-            eleccion = Console.ReadLine();
-            switch (eleccion)
-            {
-                case "8":
-                    ejercicio8();
-
-                    break;
-                case "9":
-                    ejercicio9();
-
-                    break;
-
-                case "10":
-                    ejercicio10();
-
-                    break;
-                case "11":
-                    ejercicio11();
-
-                    break;
-
-                case "12":
-                    ejercicio12();
-
-                    break;
-
-                case ("esc"):
-                    menuInicial();
-
-                    break;
-                default:
-                    Console.Clear();
-                    Console.WriteLine("Elija uno de los ejercicios del listado\n\n");
-                    menuActividades();
-
-                    break;
-            }
-        }
-        static bool EsPrimo(int numero)
+       static bool EsPrimo(int numero)
         {
             if (numero <= 1)
             {
@@ -227,12 +175,12 @@ namespace Vectores
         public static void ejercicio3()
         {
             Console.Clear();
-            Vector2 A = new Vector2(3, 2);
+            Vector2 VectorA = new Vector2(3, 2);
             Vector2 vectorB = new Vector2(1, 1);
             Vector2 vectorC = new Vector2(4, 5);
 
 
-            Console.WriteLine("Vector a: (" + A.X + ", " + A.Y + ")");
+            Console.WriteLine("Vector a: (" + VectorA.X + ", " + VectorA.Y + ")");
             Console.WriteLine("Vector b: (" + vectorB.X + ", " + vectorB.Y + ")");
             Console.WriteLine("Vector c: (" + vectorC.X + ", " + vectorC.Y + ")");
 
@@ -253,12 +201,8 @@ namespace Vectores
 
             //Longitud del vector of
             double LongitudOF;
-            double x1, x2, y1, y2;
-            x1 = 7;
-            x2 = 8;
-            y1 = 2;
-            y2 = 5;
-            LongitudOF = Math.Sqrt(((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1)));
+        
+            LongitudOF = Math.Sqrt(((Final.X - Origen.X) * (Final.X - Origen.X)) + ((Final.Y - Origen.Y) * (Final.Y - Origen.Y)));
             Console.WriteLine("La longitud del vector OF es igual a " + LongitudOF);
 
 
@@ -358,49 +302,7 @@ namespace Vectores
 
             menuActividadesIniciacion();
         }
-        public static void ejercicio8()
-        {
-            Console.Clear();
-
-
-            menuActividadesIniciacion();
-        }
-        public static void ejercicio9()
-        {
-            Console.Clear();
-
-
-
-
-            menuActividadesIniciacion();
-        }
-        public static void ejercicio10()
-        {
-            Console.Clear();
-
-
-
-
-
-            menuActividadesIniciacion();
-        }
-
-
-        //ejercicios normales
-        public static void ejercicio11()
-        {
-            Console.Clear();
-
-            menuActividades();
-
-        }
-        public static void ejercicio12()
-        {
-            Console.Clear();
-
-            menuActividades();
-
-        }
+       
 
     }
 }
