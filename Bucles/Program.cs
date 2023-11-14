@@ -368,6 +368,25 @@ namespace Bucles
                 Console.WriteLine(fila.Replace("*", i.ToString()));
             }
 
+            for (int i = 1; i <= 5; i++)
+            {
+                for (int j = 1; j <= i; j++)
+                {
+                    Console.Write("* ");
+                }
+                Console.WriteLine();
+            }
+
+
+            for (int i = 4; i >= 1; i--)
+            {
+                for (int j = 1; j <= i; j++)
+                {
+                    Console.Write("* ");
+                }
+                Console.WriteLine();
+            }
+
             menuActividadesIniciacion();
         }
         public static void ejercicio9()
@@ -459,8 +478,8 @@ namespace Bucles
             Console.Clear();
             string frase;
             Console.WriteLine("Inserte una frase");
-            frase=Console.ReadLine();
-            string resultado="";
+            frase = Console.ReadLine();
+            string resultado = "";
             foreach (char letra in frase)
             {
                 if (!("aeiouAEIOU".Contains(letra)))
@@ -510,7 +529,7 @@ namespace Bucles
             int a = 0;
             int p = 0;
             List<int> enteros = new List<int>();
-            for (int i = 0; i <= /*random.Next(0, 10)*/6; i++)
+            for (int i = 0; i <= random.Next(0, 10); i++)
             {
                 Console.Write("Ingrese un número entero: ");
                 enteros.Add(intChecker());
@@ -539,11 +558,11 @@ namespace Bucles
         public static void ejercicio15()
         {
             Console.Clear();
-            int numero=0;
+            int numero = 0;
             Console.Write("Ingrese un número entero: ");
-            numero=intChecker();
+            numero = intChecker();
             int suma = 0;
-           double resultado =Math.Pow(2,numero);
+            double resultado = Math.Pow(2, numero);
 
 
             string numerodividido = resultado.ToString();
@@ -567,6 +586,33 @@ namespace Bucles
         {
             Console.Clear();
 
+            Random random = new Random();
+            int tamaño = random.Next(0, 10);
+            bool aumenta = true;
+
+            List<int> enteros = new List<int>();
+            for (int i = 0; i <= random.Next(0, 10); i++)
+            {
+                Console.Write("Ingrese un número entero: ");
+                enteros.Add(intChecker());
+            }
+
+            for (int i = 1; i < enteros.Count && aumenta == true; i++)
+            {
+                if (enteros[(i - 1)] > enteros[i])
+                {
+                    aumenta = false;
+                }
+            }
+            if (aumenta == false)
+            {
+                Console.WriteLine("No");
+            }
+            else
+            {
+                Console.WriteLine("Si");
+
+            }
 
             menuActividades();
 
@@ -574,8 +620,36 @@ namespace Bucles
         public static void ejercicio17()
         {
             Console.Clear();
+            Random random = new Random();
 
+            int tamaño = random.Next(0, 10);
+            bool aumenta = true;
 
+            List<int> enteros = new List<int>();
+            for (int i = 0; i <= random.Next(0, 10); i++)
+            {
+                Console.Write("Ingrese un número entero: ");
+                enteros.Add(intChecker());
+            }
+
+            int maxAdyacente = int.MinValue;
+
+            for (int i = 0; i < enteros.Count; i++)
+            {
+                if (enteros[i] == 0)
+                {
+                    if (i - 1 >= 0 && Math.Abs(enteros[i - 1]) > maxAdyacente)
+                    {
+                        maxAdyacente = Math.Abs(enteros[i - 1]);
+                    }
+
+                    if (i + 1 < enteros.Count && Math.Abs(enteros[i + 1]) > maxAdyacente)
+                    {
+                        maxAdyacente = Math.Abs(enteros[i + 1]);
+                    }
+                }
+            }
+            Console.WriteLine(maxAdyacente);
 
             menuActividades();
         }
@@ -583,13 +657,54 @@ namespace Bucles
         {
             Console.Clear();
 
+            Random random = new Random();
+
+            int tamaño = random.Next(0, 10);
+            bool aumenta = true;
+
+            int enteros=0 ;
+            List<int> digitos = new List<int>();
+
+            
+                Console.Write("Ingrese un número entero: ");
+                enteros=intChecker();
+            
+            string numerosConcatenados = string.Join(", ", enteros);
+            var recuentos = numerosConcatenados.GroupBy(c => c).Where(g => g.Count() == 3 && char.IsDigit(g.Key)).Select(g => int.Parse(g.Key.ToString()));
+
+            digitos.AddRange(recuentos);
+            digitos.OrderBy(x => x).ToList();
+
+            foreach (int digito in digitos)
+            {
+                Console.Write(digito + " ");
+            }
             menuActividades();
 
         }
         public static void ejercicio19()
         {
             Console.Clear();
+            Random random = new Random();
+            int tamaño = random.Next(0, 10);
+            List<int> enteros = new List<int>();
+            List<int> digitos = new List<int>();
 
+            for (int i = 0; i <= random.Next(6, 10); i++)
+            {
+                Console.Write("Ingrese un número entero: ");
+                enteros.Add(intChecker());
+            }
+            string numerosConcatenados = string.Join(", ", enteros);
+            var recuentos = numerosConcatenados.GroupBy(c => c).Where(g => g.Count() == 3 && char.IsDigit(g.Key)).Select(g => int.Parse(g.Key.ToString()));
+
+            digitos.AddRange(recuentos);
+            digitos.OrderBy(x => x).ToList();
+
+            foreach (int digito in digitos)
+            {
+                Console.Write(digito + " ");
+            }
             menuActividades();
 
         }
@@ -603,7 +718,35 @@ namespace Bucles
         public static void ejercicio21()
         {
             Console.Clear();
+            Random random = new Random();
 
+            int tamaño = random.Next(0, 10);
+            List<int> numeros = new List<int>();
+            List<int> digitos = new List<int>();
+
+            for (int i = 0; i <= random.Next(6, 10); i++)
+            {
+                Console.Write("Ingrese un número entero: ");
+                numeros.Add(intChecker());
+            }
+
+            int indiceTres = numeros.IndexOf(3);
+
+            while (indiceTres != -1 && indiceTres < numeros.Count - 1)
+            {
+                if (numeros[indiceTres + 1] != 4)
+                {
+                    numeros.Insert(indiceTres + 1, 4);
+                    numeros.RemoveAt(indiceTres + 2);
+                }
+                indiceTres = numeros.IndexOf(3, indiceTres + 1);
+            }
+
+            Console.WriteLine("Lista reorganizada:");
+            foreach (int numero in numeros)
+            {
+                Console.Write(numero + " ");
+            }
             menuActividades();
 
         }
