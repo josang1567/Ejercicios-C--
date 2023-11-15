@@ -245,20 +245,23 @@ namespace Matemáticas_para_IA___Trigonometría
         {
             Console.Clear();
 
-            List<double> list = new List<double> { Math.PI / 6, Math.PI / 4, Math.PI / 3, Math.PI / 2, (2 * Math.PI) / 3, (3 * Math.PI) / 4, Math.PI, (3 * Math.PI) / 2, 2 * Math.PI };
+            /*
+               List<double> list = new List<double> { Math.PI / 6, Math.PI / 4, Math.PI / 3, Math.PI / 2, (2 * Math.PI) / 3, (3 * Math.PI) / 4, Math.PI, (3 * Math.PI) / 2, 2 * Math.PI };
 
-            foreach (var item in list)
-            {
-             //   Console.WriteLine($"El angulo {item} en radianes es igual a: " + item * MathF.Deg2Rad + "º");
-            }
+        foreach (var item in list)
+        {
+            Console.WriteLine($"El angulo {item} en radianes es igual a: " + item * Mathf.Deg2Rad + "º");
+        }
 
-            List<double> list2 = new List<double> { 30, 45, 90, 120, 135, 180, 270, 360 };
+        List<double> list2 = new List<double> { 30, 45, 90, 120, 135, 180, 270, 360 };
 
-            foreach (var item in list2)
-            {
+        foreach (var item in list2)
+        {
 
-                Console.WriteLine($"El angulo {item} en grados es igual a: " + item * (Math.PI / 180) + "radianes");
-            }
+            Console.WriteLine($"El angulo {item} en grados es igual a: " + item * Mathf.Rad2Deg + "radianes");
+        }
+             
+             */
             menuActividadesIniciacion();
         }
         public static void ejercicio10()
