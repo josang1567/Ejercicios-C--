@@ -104,8 +104,6 @@ namespace Matemáticas_para_IA___Trigonometría
             Console.WriteLine("Pulse 9 para acceder a el ejercicio 9");
             Console.WriteLine("Pulse 10 para acceder a el ejercicio 10");
             Console.WriteLine("Pulse 11 para acceder a el ejercicio 11");
-            Console.WriteLine("Pulse 12 para acceder a el ejercicio 12");
-
             Console.WriteLine("Escriba esc para volver atras");
 
             String eleccion;
@@ -126,10 +124,7 @@ namespace Matemáticas_para_IA___Trigonometría
 
                     break;
 
-                case "12":
-                    ejercicio12();
-
-                    break;
+              
 
                 case ("esc"):
                     menuInicial();
@@ -268,7 +263,39 @@ namespace Matemáticas_para_IA___Trigonometría
         {
             Console.Clear();
 
+            /*
+             5
+             
+             Vector2 vectorA = new Vector2(1, 1);
+            Vector2 vectorB = new Vector2(-2, 0);
+            Vector2 vectorV = new Vector2(1, 1);
+            Vector2 vectorW = new Vector2(1, -1);
 
+            double anguloAB = 0;
+            double anguloVW = 0;
+
+            anguloAB = Vector2.Angle(vectorA,vectorB);
+            anguloVW =Vector2.Angle(vectorV,vectorW);
+
+
+            Console.WriteLine("Angulo A y B: " + anguloAB * (180 / Math.PI) + "º");
+            Console.WriteLine("Angulo V y W: " + anguloVW * (180 / Math.PI) + "º");
+
+
+             6
+
+            Vector3 vectorA = new Vector3(9, 2, 7);
+            Vector3 vectorb = new Vector3(4, 8, 10);
+            Vector3 vectorV = new Vector3(-3, 5, -1);
+            Vector3 vectorW = new Vector3(4, -1, 6);
+
+           double anguloAB = 0;
+            double anguloVW = 0;
+
+            anguloAB = Vector3.Angle(vectorA,vectorB);
+            anguloVW =Vector3.Angle(vectorV,vectorW);
+
+             */
 
 
 
@@ -281,16 +308,29 @@ namespace Matemáticas_para_IA___Trigonometría
         {
             Console.Clear();
 
+            //ejercicio 1
+            Console.WriteLine("Ejercicio 1 calcular precio cable:");
+
+            double a1 = 20;
+            double angulo1 = 30 * (Math.PI / 180);
+            double h1;
+
+
+            h1=20/Math.Sin(angulo1);
+            Console.WriteLine("Ejercicio 1 Solucion: "+ h1*12);
+
+            //Ejercicio 2
+            Console.WriteLine("Ejercicio 2 altura del arbol:");
+
+            double b2 = 8;
+            double angulo2 = 36.87;
+            double h2;
+
+
             menuActividades();
 
         }
-        public static void ejercicio12()
-        {
-            Console.Clear();
-
-            menuActividades();
-
-        }
+       
 
 
         public static int intChecker()
