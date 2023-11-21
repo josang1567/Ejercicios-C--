@@ -1,56 +1,14 @@
-﻿namespace Ejercicio1
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Clases.Ejercicio1
 {
-
-    internal class Program
+    internal class Ejercicio1
     {
-        static void Main(string[] args)
-        {
-            Punto punto1 = new Punto(45, 53);
-            Punto punto2 = new Punto(27, 94);
-            Punto punto3 = new Punto(11, 112);
-
-            Console.WriteLine($"punto1: x={punto1.GetX()}, y={punto1.GetY()}");
-            Console.WriteLine($"punto2: x={punto2.GetX()}, y={punto2.GetY()}");
-            Console.WriteLine($"punto3: x={punto3.GetX()}, y={punto3.GetY()}");
-
-            punto1.SetX(10);
-            punto2.SetY(20);
-            punto3.SetX(100);
-            punto3.SetY(200);
-
-            Console.WriteLine($"punto1: x={punto1.GetX()}, y={punto1.GetY()}");
-            Console.WriteLine($"punto2: x={punto2.GetX()}, y={punto2.GetY()}");
-            Console.WriteLine($"punto3: x={punto3.GetX()}, y={punto3.GetY()}");
-
-            //ejercicio 6
-
-            Console.WriteLine("Distancia ecludiana: " + Punto.distanciaEuclida(punto3, punto2));
-            Console.WriteLine("Distancia ecludiana: " + Punto.distanciaEuclida(punto1, punto3));
-            Console.WriteLine("Distancia ecludiana: " + Punto.distanciaEuclida(punto2, punto1));
-
-            //ejercicio 7
-
-            Linea2D linea1 = new Linea2D(punto3, punto2);
-            Linea2D linea2 = new Linea2D(punto1, punto3);
-            Linea2D linea3 = new Linea2D(punto2, punto1);
-
-
-            var Medio1 = Linea2D.puntoMedioSegmento(linea1);
-            var Medio2 = Linea2D.puntoMedioSegmento(linea2);
-            var Medio3 = Linea2D.puntoMedioSegmento(linea3);
-
-            Console.WriteLine("Punto medio del segmento : (" + Medio1.Item1 + ")(" + Medio1.Item2 + ")");
-            Console.WriteLine("Punto medio del segmento : (" + Medio2.Item1 + ")(" + Medio2.Item2 + ")");
-            Console.WriteLine("Punto medio del segmento : (" + Medio3.Item1 + ")(" + Medio3.Item2 + ")");
-
-
-
-            Console.WriteLine("Distancia ecludiana del segmento :" + Linea2D.distanciaEuclida(linea1));
-            Console.WriteLine("Distancia ecludiana del segmento :" + Linea2D.distanciaEuclida(linea2));
-            Console.WriteLine("Distancia ecludiana del segmento :" + Linea2D.distanciaEuclida(linea3));
-        }
     }
-
     class Punto
     {
         private double x;
@@ -165,4 +123,6 @@
             return rand.Next(1, 5);
         }
     }
+
+
 }
