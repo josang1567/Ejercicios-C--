@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Clases.Ejercicio5
 {
-   
+
     class estudiante
     {
         public string nombre;
@@ -38,7 +38,7 @@ namespace Clases.Ejercicio5
             notas = notasnuevas;
         }
 
-        public void medianotas(List<(String, int)> notas)
+        public double medianotas(List<(String, int)> notas)
         {
             double notasmedias = 0;
 
@@ -47,8 +47,39 @@ namespace Clases.Ejercicio5
                 notasmedias += item.Item2;
             }
             notasmedias = notasmedias / notas.Count();
-            Console.WriteLine($"La nota media del {getNombre()} es: {notasmedias}");
+
+            return notasmedias;
         }
+
+        //-------------------
+        //Ejercicio 9
+        public int mayorPromedio(List<List<estudiante>> grupos)
+        {
+            int indiceMayor = 0;
+            double promedio = 0;
+            for (int i = 0; i < grupos.Count; i++)
+            {
+                double notamedia = 0;
+
+                for (int j = 0; j < grupos[i].Count; j++)
+                {
+                    notamedia += grupos[i][j].medianotas(grupos[i][j].notas);
+                }
+                notamedia /= grupos[i].Count;
+
+                if (notamedia > promedio)
+                {
+                    promedio = notamedia;
+                    indiceMayor++;
+                }
+
+            }
+
+
+            return indiceMayor;
+        }
+
+
 
     }
 

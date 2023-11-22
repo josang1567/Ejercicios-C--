@@ -6,7 +6,9 @@ using Clases.Ejercicio3;
 using Clases.Ejercicio4;
 using Clases.Ejercicio5;
 using Clases.Ejercicio8;
-
+using System.Timers;
+using circulo = Clases.Ejercicio4.circulo;
+using rectangulo = Clases.Ejercicio3.rectangulo;
 
 namespace Clases
 {
@@ -176,10 +178,11 @@ namespace Clases
             estudiante e2 = new estudiante("Luisma", notas2);
             estudiante e3 = new estudiante("Aida", notas3);
 
+            Console.WriteLine($"La nota media del {e1.getNombre()} es: {e1.medianotas(e1.notas)}");
+            Console.WriteLine($"La nota media del {e2.getNombre()} es: {e2.medianotas(e2.notas)}");
+            Console.WriteLine($"La nota media del {e3.getNombre()} es: {e3.medianotas(e3.notas)}");
 
-            e1.medianotas(e1.notas);
-            e2.medianotas(e2.notas);
-            e3.medianotas(e3.notas);
+
             menuActividadesIniciacion();
         }
         public static void ejercicio6()
@@ -230,13 +233,13 @@ namespace Clases
             Punto p2 = new Punto(4, 3);
             Punto p3 = new Punto(22, 35);
 
-            rectangulo8 r1 = new rectangulo8(1, 2, p1);
-            rectangulo8 r2 = new rectangulo8(11, 25, p2);
-            rectangulo8 r3 = new rectangulo8(65, 29, p3);
+            Ejercicio8.rectangulo r1 = new Ejercicio8.rectangulo(1, 2, p1);
+            Ejercicio8.rectangulo r2 = new Ejercicio8.rectangulo(11, 25, p2);
+            Ejercicio8.rectangulo r3 = new Ejercicio8.rectangulo(65, 29, p3);
 
-            circulo8 c1 = new circulo8(32, p1);
-            circulo8 c2 = new circulo8(976, p2);
-            circulo8 c3 = new circulo8(74, p3);
+            Ejercicio8.circulo c1 = new Ejercicio8.circulo(32, p1);
+            Ejercicio8.circulo c2 = new Ejercicio8.circulo(976, p2);
+            Ejercicio8.circulo c3 = new Ejercicio8.circulo(74, p3);
 
 
             Console.WriteLine($"El area del rectangulo es:" + r1.area());
@@ -253,8 +256,50 @@ namespace Clases
         {
             Console.Clear();
 
+            Random r = new Random();
+         
+            List<(String, int)> notasa1 = new List<(String, int)> { ("Mates", r.Next(1, 9)), ("Lengua", r.Next(1, 9)), ("Tecnologia", r.Next(1, 9)) };
+            List<(String, int)> notasa2 = new List<(String, int)> { ("Mates", r.Next(1, 9)), ("Lengua", r.Next(1, 9)), ("Tecnologia", r.Next(1, 9)) };
+            List<(String, int)> notasa3 = new List<(String, int)> { ("Mates", r.Next(1, 9)), ("Lengua", r.Next(1, 9)), ("Tecnologia", r.Next(1, 9)) };
+            List<(String, int)> notasa4 = new List<(String, int)> { ("Mates", r.Next(1, 9)), ("Lengua", r.Next(1, 9)), ("Tecnologia", r.Next(1, 9)) };
+            List<(String, int)> notasa5 = new List<(String, int)> { ("Mates", r.Next(1, 9)), ("Lengua", r.Next(1, 9)), ("Tecnologia", r.Next(1, 9)) };
+
+            List<(String, int)> notasb1 = new List<(String, int)> { ("Mates", r.Next(1, 9)), ("Lengua", r.Next(1, 9)), ("Tecnologia", r.Next(1, 9)) };
+            List<(String, int)> notasb2 = new List<(String, int)> { ("Mates", r.Next(1, 9)), ("Lengua", r.Next(1, 9)), ("Tecnologia", r.Next(1, 9)) };
+            List<(String, int)> notasb3 = new List<(String, int)> { ("Mates", r.Next(1, 9)), ("Lengua", r.Next(1, 9)), ("Tecnologia", r.Next(1, 9)) };
+            List<(String, int)> notasb4 = new List<(String, int)> { ("Mates", r.Next(1, 9)), ("Lengua", r.Next(1, 9)), ("Tecnologia", r.Next(1, 9)) };
+            List<(String, int)> notasb5 = new List<(String, int)> { ("Mates", r.Next(1, 9)), ("Lengua", r.Next(1, 9)), ("Tecnologia", r.Next(1, 9)) };
+
+            List<(String, int)> notasc1 = new List<(String, int)> { ("Mates", r.Next(1, 9)), ("Lengua", r.Next(1, 9)), ("Tecnologia", r.Next(1, 9)) };
+            List<(String, int)> notasc2 = new List<(String, int)> { ("Mates", r.Next(1, 9)), ("Lengua", r.Next(1, 9)), ("Tecnologia", r.Next(1, 9)) };
+            List<(String, int)> notasc3 = new List<(String, int)> { ("Mates", r.Next(1, 9)), ("Lengua", r.Next(1, 9)), ("Tecnologia", r.Next(1, 9)) };
+            List<(String, int)> notasc4 = new List<(String, int)> { ("Mates", r.Next(1, 9)), ("Lengua", r.Next(1, 9)), ("Tecnologia", r.Next(1, 9)) };
+            List<(String, int)> notasc5 = new List<(String, int)> { ("Mates", r.Next(1, 9)), ("Lengua", r.Next(1, 9)), ("Tecnologia", r.Next(1, 9)) };
 
 
+            estudiante ea1 = new estudiante("Mauricio", notasa1);
+            estudiante ea2 = new estudiante("Luisma", notasa2);
+            estudiante ea3 = new estudiante("Aida", notasa3);
+            estudiante ea4 = new estudiante("Paca", notasa4);
+            estudiante ea5 = new estudiante("Fermin", notasa5);
+
+            estudiante eb1 = new estudiante("Pilar", notasb1);
+            estudiante eb2 = new estudiante("Pepe", notasb2);
+            estudiante eb3 = new estudiante("Carla", notasb3);
+            estudiante eb4 = new estudiante("Marta", notasb4);
+            estudiante eb5 = new estudiante("Clark", notasb5);
+
+            estudiante ec1 = new estudiante("Bruce", notasc1);
+            estudiante ec2 = new estudiante("Peter", notasc2);
+            estudiante ec3 = new estudiante("Louis", notasc3);
+            estudiante ec4 = new estudiante("Miguel", notasc4);
+            estudiante ec5 = new estudiante("Luis", notasc5);
+
+            List<estudiante> lista1 = new List<estudiante> { ea1,ea2, ea3, ea4, ea5 };
+            List<estudiante> lista2 = new List<estudiante> { eb1, eb2, eb3, eb4, eb5 };
+            List<estudiante> lista3 = new List<estudiante> { ec1, ec2, ec3, ec4, ec5 };
+            List<List<estudiante>> Curso= new List<List<estudiante>> { lista1,lista2,lista3};
+            Console.WriteLine("El grupo con mayor promedio es el grupo con el indice: "+ ea1.mayorPromedio(Curso));
 
             menuActividadesIniciacion();
         }

@@ -24,12 +24,12 @@ namespace Clases.Ejercicio8
 
     }
 
-    class rectangulo8 : Forma
+    class rectangulo : Forma
     {
         public int longitud;
         public int ancho;
 
-        public rectangulo8(int longitud, int ancho, Punto centro) : base(centro)
+        public rectangulo(int longitud, int ancho, Punto centro) : base(centro)
         {
             this.longitud = longitud;
             this.ancho = ancho;
@@ -44,11 +44,11 @@ namespace Clases.Ejercicio8
 
     }
 
-    class circulo8 : Forma
+    class circulo : Forma
     {
         public double radio;
 
-        public circulo8(double radio, Punto centro) : base(centro)
+        public circulo(double radio, Punto centro) : base(centro)
         {
             this.radio = radio;
             this.centro = centro;
@@ -61,5 +61,5 @@ namespace Clases.Ejercicio8
             return area;
         }
 
-    
+    }
 }
