@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace Clases.Ejercicio5
 {
-    internal class Ejercicio5
-    {
-    }
-
+   
     class estudiante
     {
         public string nombre;

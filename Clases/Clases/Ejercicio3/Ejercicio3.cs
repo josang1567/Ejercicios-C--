@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Clases.Ejercicio5;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,7 @@ using System.Threading.Tasks;
 
 namespace Clases.Ejercicio3
 {
-    internal class Ejercicio3
-    {
-    }
+  
     class rectangulo
     {
         public int longitud;
@@ -26,4 +25,5 @@ namespace Clases.Ejercicio3
             Console.WriteLine($"El area es igual a {area}");
         }
     }
+    
 }

@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace Clases.Ejercicio1
 {
-    internal class Ejercicio1
-    {
-    }
+   
     class Punto
     {
         private double x;
@@ -111,18 +109,7 @@ namespace Clases.Ejercicio1
         }
 
     }
-    //-----------------------------------------------
-    //Ejercicio 8
-    class Forma
-    {
-        Punto centro;
-
-        public static double area()
-        {
-            var rand = new Random();
-            return rand.Next(1, 5);
-        }
-    }
+    
 
 
 }

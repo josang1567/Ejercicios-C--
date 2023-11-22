@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Clases.Ejercicio5;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,7 @@ using System.Threading.Tasks;
 
 namespace Clases.Ejercicio4
 {
-    internal class Ejercicio4
-    {
-    }
+   
     class circulo
     {
         public double radio;

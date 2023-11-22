@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace Clases.Ejercicio2
 {
-    internal class Ejericicio2
-    {
-    }
+   
     class Linea
     {
         int x1, x2, y1, y2;
