@@ -6,6 +6,8 @@ using Clases.Ejercicio3;
 using Clases.Ejercicio4;
 using Clases.Ejercicio5;
 using Clases.Ejercicio8;
+using Clases.Ejercicio10;
+
 using System.Timers;
 using circulo = Clases.Ejercicio4.circulo;
 using rectangulo = Clases.Ejercicio3.rectangulo;
@@ -299,7 +301,7 @@ namespace Clases
             List<estudiante> lista2 = new List<estudiante> { eb1, eb2, eb3, eb4, eb5 };
             List<estudiante> lista3 = new List<estudiante> { ec1, ec2, ec3, ec4, ec5 };
             List<List<estudiante>> Curso= new List<List<estudiante>> { lista1,lista2,lista3};
-            Console.WriteLine("El grupo con mayor promedio es el grupo con el indice: "+ ea1.mayorPromedio(Curso));
+            Console.WriteLine("El grupo con mayor promedio es el grupo con el indice: " + estudiante.mayorPromedio(Curso));
 
             menuActividadesIniciacion();
         }
@@ -307,7 +309,13 @@ namespace Clases
         {
             Console.Clear();
 
+            A objetoA = new A();
+            B objetoB = new B();
+            C objetoC = new C();
 
+            objetoA.MetodoComun(); 
+            objetoB.MetodoComun(); 
+            objetoC.MetodoComun();
 
 
 

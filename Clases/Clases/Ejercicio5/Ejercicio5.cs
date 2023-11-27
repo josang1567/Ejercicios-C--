@@ -53,7 +53,7 @@ namespace Clases.Ejercicio5
 
         //-------------------
         //Ejercicio 9
-        public int mayorPromedio(List<List<estudiante>> grupos)
+        public static int mayorPromedio(List<List<estudiante>> grupos)
         {
             int indiceMayor = 0;
             double promedio = 0;
