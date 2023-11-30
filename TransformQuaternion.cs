@@ -1,14 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class TransformQuaternion : MonoBehaviour
 {
+    [SerializeField]
+    [Header("Activar ejercicios")]
+    public bool e5, e6, e7, e8,e9;
+
+
+    [Header("Activar Ejercicios")]
+
     public bool translate;
     public bool rotate;
+    public bool LookRotation;
+    public int ejercicio9Quarter;
+
+    [Header("comun")]
+    public Transform target1;
+    public Transform target2;
 
     void Start()
     {
+        if (e7 == true)
+        {
+            Ejercicio7();
+        }
 
     }
 
@@ -54,16 +72,51 @@ public class TransformQuaternion : MonoBehaviour
 
         Ejercicio 5. Di las diferencias entre Transform.position y Transform.Translate y translada de ambas maneras.
 
-        La diferencia entre Transform,position y Transform.translate es que t.position se utiliza para la posición absoluta de un objeto en el mundo mientras que t.translate se usa para mover un objeto en relación a su posición actual.
+             La diferencia entre Transform,position y Transform.translate es que t.position se utiliza para la posición absoluta de un objeto en el mundo mientras que t.translate se usa para mover un objeto en relación a su posición actual.
 
         Ejercicio 6. Di las diferencias entre Transform.rotation y Transform.Rotate y rota de ambas maneras.
 
-        [...]
+        La diferencia principal entre rotation y rotate es que rotation usa la rotación absoluta del objeto en el espacio tridimensional usando cuaterniones mientras que rotate hace uso de la rotación relativa del objeto haciendo giros en el eje local o global del objeto.
+
+        Ejercicio 7. Di el funcionamiento de Transform.localScale y escala un sprite a 0.25, 0.5 y 0.75.
+
+        Transform.localScale es la escala actual de un objeto frente a su objeto padre, esto permite modificar la anchura, altura y profundidad del objeto.
+
+
+        Ejercicio 8. Explica la clase Quaternion y haz un ejemplo con Quaternion.LookRotation y Transform.LookAt.
+
+        La clase quaternion es una clase empleada para poder representar rotaciones en un espacio tridimensional evitando los problemas de los ángulos Euler evitando el bloqueo cardán. 
+
+
+
+
+        Ejercicio 10. Explica Quaternion.identity, rota con Quaternion.operator * y rota suave con Quaternion.Slerp.
+
+        Quaternion.identity es una constante que representa un cuaternión que no tiene ninguna rotación.  
+
+        Ejercicio 14. Define velocidad angular, interactúa aquí y explica las diferencias entre LERP y SLERP en rotación.
+
+        La velocidad angular en física es la representación pseudovectorial de como la posición angular de un objeto cambia conforme pasa el tiempo alrededor de un eje y como de rapido cambia su direccion en el propio eje.
+
 
         */
+        if (e5 == true)
+        {
+            Ejercicio5();
+        }
+        if (e6 == true)
+        {
+            Ejercicio6();
+        }
+        if (e8 == true)
+        {
+            Ejercicio8();
+        }
+        if (e9 == true)
+        {
+            Ejercicio9();
+        }
 
-        Ejercicio5();
-        Ejercicio6();
     }
 
     void Ejercicio5()
@@ -79,32 +132,7 @@ public class TransformQuaternion : MonoBehaviour
             transform.position = transform.position + new Vector3(-Time.deltaTime, 0, 0);
 
         }
-        // Mueve el objeto 1 unidad/segundo hacia arriba (eje y).
-        // transform.Translate(Vector3.up * Time.deltaTime);
 
-
-        // Mueve el objeto 1 unidad/segundo hacia abajo (eje y).
-        // transform.Translate(Vector3.down * Time.deltaTime);
-
-        // Mueve el objeto 1 unidad/segundo hacia la izquierda (eje x).
-        // transform.Translate(Vector3.left * Time.deltaTime);
-
-        // Mueve el objeto 1 unidad/segundo hacia la derecha (eje x).
-        // transform.Translate(Vector3.right * Time.deltaTime);
-
-
-
-        // Mueve el objeto 1 unidad/segundo hacia arriba (eje y).
-        //transform.position = transform.position + new Vector3(0, Time.deltaTime, 0);
-
-        // Mueve el objeto 1 unidad/segundo hacia abajo (eje y).
-        // transform.position = transform.position + new Vector3(0, -Time.deltaTime, 0);
-
-        // Mueve el objeto 1 unidad/segundo hacia la izquierda (eje x).
-        // transform.position = transform.position + new Vector3(-Time.deltaTime, 0, 0);
-
-        // Mueve el objeto 1 unidad/segundo hacia la derecha (eje x).
-        //transform.position = transform.position + new Vector3(Time.deltaTime, 0, 0);
 
 
 
@@ -116,22 +144,76 @@ public class TransformQuaternion : MonoBehaviour
         {
             Quaternion currentRotation = transform.rotation;
 
-            
+
             Quaternion deltaRotation = Quaternion.Euler(0.0f, 0.0f, 30.0f * Time.deltaTime);
 
-           
+
             Quaternion newRotation = currentRotation * deltaRotation;
 
-            
+
             transform.rotation = newRotation;
         }
         else
         {
             transform.Rotate(Vector3.up, -30.0f * Time.deltaTime);
         }
-        // transform.Rotate(0.0f, 0.0f, 1.0f);
 
-        // transform.rotation = [...]
     }
 
+    void Ejercicio7()
+    {
+        transform.localScale = new Vector3(0.25f, 0.5f, 0.75f);
+    }
+
+    void Ejercicio8()
+    {
+        if (LookRotation == true)
+        {
+            Vector3 posicionrelativa = new Vector3(3f, 3, 3f);
+
+            Quaternion rotation = Quaternion.LookRotation(posicionrelativa, Vector3.up);
+            transform.rotation = rotation;
+        }
+        else
+        {
+            transform.LookAt(target2.position);
+        }
+
+    }
+    void Ejercicio9()
+    {
+
+      //  Ejercicio 9.Usa Quaternion.Angle, Quaternion.Euler, Quaternion.FromToRotation y Quaternion.RotateTowards.
+
+
+        switch (ejercicio9Quarter)
+        {
+            
+            case 0:
+                //Quaternion.Angle
+                float angle = Quaternion.Angle(transform.rotation, target1.rotation);
+                Debug.Log(angle);
+                break;
+            case 1:
+                // Quaternion.Euler 
+
+                Vector3 rotationVector = new Vector3(0, 30, 0);
+                Quaternion rotation = Quaternion.Euler(rotationVector);
+                Debug.Log(rotation);
+                break;
+
+            case 2:
+                //Quaternion.FromToRotation 
+                transform.rotation = Quaternion.FromToRotation(target1.position, transform.forward);
+                break;
+
+            case 3:
+                // Quaternion.RotateTowards
+                
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, target1.rotation, (10*Time.deltaTime));
+                break;
+
+        }
+
+    }
 }
