@@ -1,7 +1,7 @@
 ﻿namespace Librerias
 {
     using Librerias.Ejercicio1;
-    using Librerias.Ejercicio2;
+    using Librerias.Ejercicio3;
 
     using System.Numerics;
 
@@ -12,7 +12,7 @@
             menuActividadesIniciacion();
         }
 
-     
+
         public static void menuActividadesIniciacion()
         {
             Console.WriteLine("\n\nMenu de Actividades de iniciacion");
@@ -90,13 +90,13 @@
             }
         }
 
-      
+
         public static void ejercicio1()
         {
             Console.Clear();
             Vector2 vecto1 = new Vector2(45, 53);
             Vector2 vecto2 = new Vector2(27, 94);
-          Console.WriteLine(  Librerias.Ejercicio1.Ejercicio1.CalculateAngle(vecto1,vecto2));
+            Console.WriteLine(Librerias.Ejercicio1.Ejercicio1.CalculateAngle(vecto1, vecto2));
 
 
             menuActividadesIniciacion();
@@ -104,19 +104,24 @@
         public static void ejercicio2()
         {
             Console.Clear();
+
             Librerias.Ejercicio2.Ejercicio2.ej2();
+
+
+
+
             menuActividadesIniciacion();
         }
         public static void ejercicio3()
         {
             Console.Clear();
-
-
+            Librerias.Ejercicio3.Ejercicio3.ej3();
             menuActividadesIniciacion();
         }
         public static void ejercicio4()
         {
             Console.Clear();
+            Librerias.Ejercicio4.Ejercicio4.ej4();
 
 
             menuActividadesIniciacion();

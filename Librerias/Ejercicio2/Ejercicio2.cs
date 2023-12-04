@@ -1,6 +1,4 @@
 ﻿using System;
-using System.IO;
-
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,30 +6,48 @@ using System.Threading.Tasks;
 
 namespace Librerias.Ejercicio2
 {
-     class Ejercicio2
-    {
-        public static void ej2()
+    internal class Ejercicio2
+    {public static void ej2()
         {
-            try
+            Console.WriteLine("Ejemplo 1");
+
+            StringBuilder builder = new();
+            builder.AppendLine("Hello");
+            builder.AppendLine("World!");
+
+            Console.WriteLine(builder.ToString());
+
+
+            Console.WriteLine("Ejemplo 2");
+
+            int? maybe = 12;
+
+            if (maybe is int number)
             {
-                // Lee el contenido del archivo 1 y almacénalo en una variable
-                string textoArchivo1 = File.ReadAllText("project-history.es.txt");
-
-                // Lee el contenido del archivo 2 y almacénalo en otra variable
-                string textoArchivo2 = File.ReadAllText("Countries-Europe.txt");
-
-                // Concatena los dos textos en una nueva variable
-                string textos_concatenados = textoArchivo1 + textoArchivo2;
-
-                // Crea un nuevo archivo y escribe el contenido concatenado
-                File.WriteAllText("textos_concatenados.txt", textos_concatenados);
-
-                Console.WriteLine("Se han concatenado los textos y se ha creado el archivo 'textos_concatenados.txt'.");
+                Console.WriteLine($"The nullable int 'maybe' has the value {number}");
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine("Ha ocurrido un error: " + ex.Message);
+                Console.WriteLine("The nullable int 'maybe' doesn't hold a value");
             }
+
+            Console.WriteLine("\nEjemplo 3");
+            var result = QueryCityData("New York City");
+
+            var city = result.Item1;
+            var pop = result.Item2;
+            var size = result.Item3;
+
+            Console.WriteLine(result.Item1+" "+result.Item2+" "+result.Item3);
+        }
+        private static (string, int, double) QueryCityData(string name)
+        {
+            if (name == "New York City")
+                return (name, 8175133, 468.48);
+
+            return ("", 0, 0);
         }
     }
+
+
 }
